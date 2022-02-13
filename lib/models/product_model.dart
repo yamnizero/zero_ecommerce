@@ -47,6 +47,14 @@ class Product extends Equatable {
         isPopular: true
     ),
     const Product(
+        name: 'Soft Drink #4',
+        category: 'Soft Drink',
+        imageUrl: 'https://images.unsplash.com/photo-1625740822008-e45abf4e01d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c29mdCUyMGRyaW5rc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+        price: 2.99,
+        isRecommended: false,
+        isPopular: true
+    ),
+    const Product(
         name: 'Smoothies #1',
         category: 'Smoothies',
         imageUrl: 'https://media.istockphoto.com/photos/acai-smoothie-bowl-with-toppings-picture-id1298159858?b=1&k=20&m=1298159858&s=170667a&w=0&h=fQei4M7bo5YYKDBiuT_u6d-DoOBrjLYSQscmz6C3iTE=',
