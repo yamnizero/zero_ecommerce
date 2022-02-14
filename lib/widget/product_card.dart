@@ -4,13 +4,18 @@ import 'package:new_ecommerce/models/models.dart';
 class ProductCard extends StatelessWidget {
   final Product product;
   final double widthFactor;
+  final double leftPosition;
+  final bool isWishlist;
   const ProductCard({
     Key? key, required this.product,
     this.widthFactor =2.5,
+    this.leftPosition=5,
+    this.isWishlist =false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final double widthvale =MediaQuery.of(context).size.width /widthFactor;
     return InkWell(
       onTap: ()
       {
@@ -19,7 +24,7 @@ class ProductCard extends StatelessWidget {
       child: Stack(
         children: [
           SizedBox(
-            width: MediaQuery.of(context).size.width /widthFactor,
+            width:widthvale,
             height: 150,
             child: Image.network(
               product.imageUrl,
@@ -28,8 +33,9 @@ class ProductCard extends StatelessWidget {
           ),
           Positioned(
             top: 60,
+            left: leftPosition,
             child: Container(
-              width: MediaQuery.of(context).size.width / 2.5,
+              width: widthvale - 5 - leftPosition ,
               height: 80,
               decoration: BoxDecoration(
                 color: Colors.black.withAlpha(50),
@@ -38,9 +44,9 @@ class ProductCard extends StatelessWidget {
           ),
           Positioned(
             top: 65,
-            left: 5,
+            left: leftPosition + 5,
             child: Container(
-              width: MediaQuery.of(context).size.width / 2.5 - 10,
+              width:widthvale - 15 - leftPosition,
               height: 70,
               decoration: const BoxDecoration(
                 color: Colors.black,
@@ -78,6 +84,12 @@ class ProductCard extends StatelessWidget {
                         onPressed: (){},
                       ),
                     ),
+                    isWishlist ? Expanded( 
+                      child: IconButton(
+                        icon: const Icon(Icons.delete,color: Colors.white,),
+                        onPressed: (){},
+                      ),
+                    ): const SizedBox(),
                   ],
                 ),
               ),
