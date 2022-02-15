@@ -3,3 +3,5 @@ export '../screen/cart/cart_screen.dart';
 export '../screen/cataiog/cataiog_screen.dart';
 export '../screen/wishlist/wishlist_screen.dart';
 export '../screen/product/product_screen.dart';
+export 'cart/cart_screen.dart';
+export '../screen/splash/splash_screen.dart';
