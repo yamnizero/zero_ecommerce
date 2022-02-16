@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_ecommerce/blocs/cart/cart_bloc.dart';
@@ -6,11 +7,18 @@ import 'package:new_ecommerce/blocs/wishlist/wishlist_bloc.dart';
 import 'package:new_ecommerce/blocs/wishlist/wishlist_event.dart';
 import 'config/app_router.dart';
 import 'config/theme.dart';
-import 'screen/home/home_screen.dart';
+import 'observer.dart';
 import 'screen/splash/splash_screen.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  BlocOverrides.runZoned(
+        () {
+      runApp(MyApp());
+    },
+    blocObserver: MyBlocObserver(),
+  );
 }
 
 class MyApp extends StatelessWidget {

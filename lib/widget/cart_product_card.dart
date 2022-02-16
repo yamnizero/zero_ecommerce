@@ -8,8 +8,9 @@ import 'package:new_ecommerce/models/models.dart';
 
 class CartProductCard extends StatelessWidget {
   final Product product;
+  final int quantity;
 
-  const CartProductCard({Key? key, required this.product}) : super(key: key);
+  const CartProductCard({Key? key, required this.product,required this.quantity}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +45,7 @@ class CartProductCard extends StatelessWidget {
                       context.read<CartBloc>().add(RemoveProduct(product));
                     },
                   ),
-                  Text('1', style: Theme
-                      .of(context)
-                      .textTheme
-                      .headline5,),
+                  Text('$quantity',style: Theme.of(context).textTheme.headline4,),
                   IconButton(
                     icon: const Icon(Icons.add_circle),
                     onPressed: () {
